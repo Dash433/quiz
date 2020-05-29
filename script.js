@@ -4,24 +4,51 @@ var display = document.querySelector("#timer");
 var questionEl = document.querySelector("#question");
 var listEl = document.querySelector("#list");
 
-
+//var rank=[];
+var list =JSON.parse(localStorage.getItem("rank"));
+console.log(list);
+listEl.textContent=list;
 function highscore(){
     
 var name=prompt("your score is "+time+" enter your name to save it");//asks the user to input there name
+
+
+// var oldItems = JSON.parse(localStorage.getItem('itemsArray')) || [];
+
+// var newItem = 
+// {
+//  'product-name': itemContainer.find('h2.product-name a').text(),
+//  'product-image': itemContainer.find('div.product-image img').attr('src'),
+//  'product-price': itemContainer.find('span.product-price').text()
+// };
+
+//  oldItems.push(newItem);
+
+//  localStorage.setItem('itemsArray', JSON.stringify(oldItems));
+
+
 
 questionEl.innerHTML="";// erases previous code
   
     var page = document.createElement("li");// creates a list for our scoreboard
     page.textContent = " name: "+ name +" , score: "+ time; //assigns to the list name and score
-    // var rank={name:name,score:time};
-    // var rankstring=JSON.stringify(rank);
-    // //console.log(rankstring);
-    // localStorage.setItem("rank",rankstring);
-    // var backn=JSON.parse(localStorage.getItem("rank"));
-    // console.log(backn);
-    // localStorage.setItem("page", page);
-    //console.log(page);
-    listEl.appendChild(page);// appends the list
+    var newScore={name:name,score:time};
+    //rank=[{name:name,score:time}]+rank;
+   //rank.push({name:name,score:time});
+
+ list.push(newScore);
+ localStorage.setItem("rank", JSON.stringify(list));
+
+//     var rankstring=JSON.stringify(rank);
+//      console.log(rankstring);
+//     localStorage.setItem("rank",rankstring);
+//     var backn=JSON.parse(localStorage.getItem("rank"));
+//     console.log(backn);
+//     //localStorage.setItem("page", page);
+//     console.log(page);
+    
+//    page.textContent=list
+     listEl.appendChild(page);// appends the list
     
     
     var playagain = document.createElement("button");// creates a play again button
@@ -248,7 +275,3 @@ function questionthree() {
     })
     questionEl.appendChild(four)
 }
-
-
-
-

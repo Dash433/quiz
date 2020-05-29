@@ -11,7 +11,7 @@
 
 ## What it does not do
 * clear interval is not used affectively
-* local storage will not save scores so when refreshed originall scores will disappear
+* Although localStorage stores all values it will not printo out on display instead it is [Object, object]
 * The URL of the GitHub repository. Give the repository a unique name and include a README describing the project.
 * https://dash433.github.io/quiz/
 
